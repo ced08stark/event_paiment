@@ -4,7 +4,7 @@
   "description": "payment-event-api",
   "main": "src/index.ts",
   "scripts": {
-    "start": "node dist/index.ts",
+    "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
     "build": "tsc"
   },
@@ -32,9 +32,11 @@
     "@types/axios": "^0.14.4",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/html-to-text": "^9.0.4",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.9.1",
     "@types/nodemailer": "^6.4.17",
+    "@types/prismjs": "^1.26.5",
     "@types/react": "^18.3.12",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
