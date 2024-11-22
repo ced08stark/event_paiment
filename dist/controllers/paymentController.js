@@ -14,19 +14,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios = require('axios');
 const crypto_1 = __importDefault(require("crypto"));
-const generatePaymentReference = require("../utils/genereReference");
+const genereReference_1 = __importDefault(require("../utils/genereReference"));
 const { sendEmail } = require('../emails/paymentSuccess');
 const { Transaction } = require("../models/Transaction");
 const publicKey = '012d871d-4f96-4ad8-9130-ecf11e3e4c4a';
 const privateKey = 'mJEDbKN4BbmpGsrG3oAstqLZOQX3YQjbNX7c53k2b69nK1n2Q1tvPLpndFL5SxYz';
 const url = `https://my-coolpay.com/api/${publicKey}/payin`;
 const payin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const reference = (0, genereReference_1.default)();
     try {
         const data = {
             transaction_amount: parseInt(req.body.amount),
             transaction_currency: req.body.currency,
             transaction_reason: req.body.motif,
-            app_transaction_ref: generatePaymentReference(),
+            app_transaction_ref: reference,
             customer_phone_number: req.body.phone,
             customer_name: req.body.name,
             customer_email: req.body.email,
@@ -77,6 +78,7 @@ const sendEventLink = (req, res) => __awaiter(void 0, void 0, void 0, function* 
                 const transaction = yield Transaction.findOne({
                     reference: req.body.app_transaction_ref,
                 }).exec();
+                console.log(transaction);
                 if (transaction) {
                     sendEmail({
                         customerName: transaction.user_name,
