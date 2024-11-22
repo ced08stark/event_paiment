@@ -12,13 +12,13 @@ const url = `https://my-coolpay.com/api/${publicKey}/payin`;
 
 
 const payin = async (req: any, res: any) =>{
-
+  const reference = generatePaymentReference()
   try{
     const data = {
       transaction_amount: parseInt(req.body.amount),
       transaction_currency: req.body.currency,
       transaction_reason: req.body.motif,
-      app_transaction_ref: generatePaymentReference(),
+      app_transaction_ref: reference,
       customer_phone_number: req.body.phone,
       customer_name: req.body.name,
       customer_email: req.body.email,
@@ -77,7 +77,7 @@ const sendEventLink = async (req: any, res: any) =>{
                 const transaction = await Transaction.findOne({
                     reference: req.body.app_transaction_ref,
                 }).exec();
-
+                console.log(transaction)
                 if(transaction){
                     sendEmail({
                       customerName: transaction.user_name,
