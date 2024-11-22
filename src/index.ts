@@ -1,30 +1,39 @@
-import express  from  'express';
-const morgan = require('morgan');
-const connectDB = require('./config/dbConn');
-const { default: mongoose } = require("mongoose");
-const app = express();
-//const { sendEmail } = require('./utils/sendMail');
-const cors = require("cors");
+import express from "express";
+import morgan from "morgan";
+import mongoose from "mongoose";
+import cors from "cors";
+
+const connectDB = require("./config/dbConn");
 const corsOption = require("./config/corsOption");
+const paymentRoutes = require("./routes/paymentRoute"); // Import des routes spécifiques
 
-
+const app = express();
 const port = 3000;
-connectDB()
-app.use(morgan(':method :url :status :response-time ms'));
+
+// Connexion à la base de données
+connectDB();
+
+// Middleware pour afficher les logs des requêtes HTTP
+app.use(morgan(":method :url :status :response-time ms"));
+
+// Middleware pour gérer les en-têtes CORS
 app.use(cors(corsOption));
+
 // Middleware pour traiter les requêtes JSON
 app.use(express.json());
-app.use("/api", require("./routes/paymentRoute"));
+
+// Définition des routes
+app.use("/api", paymentRoutes);
 
 // Route de base
-app.get('/', (req: any, res: any) => {
-  res.send('Bienvenue sur votre serveur Express.js en TypeScript avec require!');
+app.get("/", (req, res) => {
+  res.send("Bienvenue sur votre serveur Express.js en TypeScript avec ES Modules!");
 });
 
-
- mongoose.connection.once("open", () => {
-  console.log("connect to mongoDB");
+// Écoute sur le port après connexion à MongoDB
+mongoose.connection.once("open", () => {
+  console.log("Connecté à MongoDB");
   app.listen(port, () => {
-    console.log(`Server running on port http://localhost:${port}`)
+    console.log(`Serveur lancé sur http://localhost:${port}`);
   });
 });

@@ -2,10 +2,10 @@
   "name": "payment-api",
   "version": "1.0.0",
   "description": "payment-event-api",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "start": "node dist/index.ts",
-    "dev": "nodemon src/index.ts",
+    "dev": "ts-node src/index.ts",
     "build": "tsc"
   },
   "author": "",
@@ -30,7 +30,9 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.4",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^22.9.1",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^18.3.12",
