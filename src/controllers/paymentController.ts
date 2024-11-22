@@ -1,6 +1,6 @@
 const axios = require('axios');
 import crypto from "crypto";
-const generatePaymentReference = require("../utils/genereReference");
+import generatePaymentReference from "../utils/genereReference";
 const { sendEmail } = require('../emails/paymentSuccess');
 const { Transaction } = require("../models/Transaction");
 
