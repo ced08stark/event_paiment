@@ -43,7 +43,7 @@ const payin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
         if (response) {
             const transaction = new Transaction({
-                reference: req.body.reference,
+                reference: reference,
                 user_email: req.body.email,
                 user_name: req.body.name,
                 operator: req.body.operator,
@@ -75,6 +75,7 @@ const sendEventLink = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     try {
         if (signature == req.body.signature) {
             if (req.body.transaction_status == "SUCCESS") {
+                console.log('ici');
                 const transaction = yield Transaction.findOne({
                     reference: req.body.app_transaction_ref,
                 }).exec();
