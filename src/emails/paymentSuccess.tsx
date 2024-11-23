@@ -47,7 +47,7 @@ const PaymentSuccessEmail = ({
               <span className="font-semibold">{transactionRef}</span>
             </Text>
             <Button
-              href="https://objectifcanada-tcf.com/account"
+              href="https://go.eventozor.com/o/a/Gr8FirsKiEqdScJYpZQ0pFOjFkwVd05NxU5q8fRNF4EYNHXTnUithFeil0KQO6Q0"
               className="bg-blue-600 rounded-md text-white font-bold border border-gray-100 hover:bg-blue-700 py-3 px-8"
             >
               Enregistrez-vous immédiatement 🚀

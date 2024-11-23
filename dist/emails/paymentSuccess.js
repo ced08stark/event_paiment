@@ -32,7 +32,7 @@ const PaymentSuccessEmail = ({ customerName, transactionAmount, transactionCurre
                         "R\u00E9f\u00E9rence de transaction :",
                         " ",
                         react_1.default.createElement("span", { className: "font-semibold" }, transactionRef)),
-                    react_1.default.createElement(components_1.Button, { href: "https://objectifcanada-tcf.com/account", className: "bg-blue-600 rounded-md text-white font-bold border border-gray-100 hover:bg-blue-700 py-3 px-8" }, "Enregistrez-vous imm\u00E9diatement \uD83D\uDE80"),
+                    react_1.default.createElement(components_1.Button, { href: "https://go.eventozor.com/o/a/Gr8FirsKiEqdScJYpZQ0pFOjFkwVd05NxU5q8fRNF4EYNHXTnUithFeil0KQO6Q0", className: "bg-blue-600 rounded-md text-white font-bold border border-gray-100 hover:bg-blue-700 py-3 px-8" }, "Enregistrez-vous imm\u00E9diatement \uD83D\uDE80"),
                     react_1.default.createElement(components_1.Text, { className: "mt-4 text-gray-600" }, "Merci d'avoir utilis\u00E9 notre service."),
                     react_1.default.createElement(components_1.Text, { className: "mt-4 text-gray-600" },
                         "Cordialement,",
