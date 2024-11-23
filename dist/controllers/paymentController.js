@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const axios = require('axios');
 const crypto_1 = __importDefault(require("crypto"));
 const genereReference_1 = __importDefault(require("../utils/genereReference"));
-const { sendEmail } = require('../emails/paymentSuccess');
+const sendMail_1 = require("../utils/sendMail");
 const { Transaction } = require("../models/Transaction");
 const publicKey = '012d871d-4f96-4ad8-9130-ecf11e3e4c4a';
 const privateKey = 'mJEDbKN4BbmpGsrG3oAstqLZOQX3YQjbNX7c53k2b69nK1n2Q1tvPLpndFL5SxYz';
@@ -81,7 +81,7 @@ const sendEventLink = (req, res) => __awaiter(void 0, void 0, void 0, function* 
                 }).exec();
                 console.log(transaction);
                 if (transaction) {
-                    sendEmail({
+                    (0, sendMail_1.sendEmail)({
                         customerName: transaction.user_name,
                         transactionAmount: req.body.transaction_amount,
                         transactionCurrency: req.body.transaction_currency,
